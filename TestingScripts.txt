@@ -1,0 +1,29 @@
+dotnet ef migrations add InitialCreate --project src/BookRentalAPI.Infrastructure --startup-project src/BookRentalAPI.API
+dotnet ef database update --project src/BookRentalAPI.Infrastructure --startup-project src/BookRentalAPI.API
+
+dotnet test src/BookRentalAPI.Tests/
+
+dotnet run --project src/BookRentalAPI.API/
+
+# Check project dependencies
+dotnet list src/BookRentalAPI.API/ reference
+dotnet list src/BookRentalAPI.Application/ reference
+dotnet list src/BookRentalAPI.Infrastructure/ reference
+
+# Check for commands and queries
+find src/BookRentalAPI.Application/Features -type f | grep -E "Command|Query"
+
+# Check repository implementations
+find src/BookRentalAPI.Infrastructure/Repositories -type f
+
+# Check validators
+find src/BookRentalAPI.Application/Features -name "*Validator.cs"
+
+# Check OperationResult usage
+grep -r "OperationResult" src/BookRentalAPI.API/Controllers/
+
+# Run tests
+dotnet test src/BookRentalAPI.Tests/
+
+# Check for JWT authentication setup
+grep -r "JwtBearer" src/BookRentalAPI.API/Program.cs
