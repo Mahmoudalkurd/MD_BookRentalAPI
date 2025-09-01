@@ -3,8 +3,8 @@ namespace BookRentalAPI.Domain.Common
     public class OperationResult<T>
     {
         public bool Success { get; set; }
-        public T Data { get; set; }
-        public string ErrorMessage { get; set; }
+        public T? Data { get; set; }
+        public string ErrorMessage { get; set; } = string.Empty;
         public int StatusCode { get; set; }
 
         public static OperationResult<T> Ok(T data) => new() { Success = true, Data = data, StatusCode = 200 };

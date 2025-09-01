@@ -1,3 +1,5 @@
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using BookRentalAPI.API.Middleware;
 using BookRentalAPI.Infrastructure.Data;
 using BookRentalAPI.Infrastructure;
@@ -12,10 +14,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container
 builder.Services.AddControllers();
 
-// Add layers
-builder.Services
-    .AddApplication()
-    .AddInfrastructure(builder.Configuration);
 
 // Add DbContext
 builder.Services.AddDbContext<BookRentalDbContext>(options =>
