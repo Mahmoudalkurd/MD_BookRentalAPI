@@ -1,8 +1,8 @@
 using BookRentalAPI.DTOs;
-using BookRentalAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using BookRentalAPI.Application.Services;
 
 namespace BookRentalAPI.Controllers
 {

@@ -1,6 +1,7 @@
 using BookRentalAPI.Application.Features.Books.Commands;
 using BookRentalAPI.Application.Features.Books.Queries;
 using BookRentalAPI.Domain.Common;
+using BookRentalAPI.Application.Services;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BookRentalAPI.Models
+namespace BookRentalAPI.Domain.Entities
 {
     public class Rental
     {
@@ -22,9 +22,9 @@ namespace BookRentalAPI.Models
 
         // Navigation properties
         [ForeignKey("BookId")]
-        public Book Book { get; set; }
+        public Book Book { get; set; } = null!;
 
         [ForeignKey("UserId")]
-        public User User { get; set; }
+        public User User { get; set; } = null!;
     }
 }

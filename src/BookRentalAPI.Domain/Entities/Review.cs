@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BookRentalAPI.Models
+namespace BookRentalAPI.Domain.Entities
 {
     public class Review
     {
@@ -13,7 +13,7 @@ namespace BookRentalAPI.Models
         public int Rating { get; set; }
 
         [StringLength(500)]
-        public string ReviewText { get; set; }
+        public string ReviewText { get; set; } = string.Empty;
 
         public DateTime ReviewDate { get; set; } = DateTime.UtcNow;
 
@@ -23,9 +23,9 @@ namespace BookRentalAPI.Models
 
         // Navigation properties
         [ForeignKey("BookId")]
-        public Book Book { get; set; }
+        public Book Book { get; set; } = null!;
 
         [ForeignKey("UserId")]
-        public User User { get; set; }
+        public User User { get; set; } = null!;
     }
 }

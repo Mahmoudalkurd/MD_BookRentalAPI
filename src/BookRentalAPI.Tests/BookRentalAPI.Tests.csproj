@@ -25,6 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BookRentalAPI.Application\BookRentalAPI.Application.csproj" />
     <ProjectReference Include="..\BookRentalAPI.Infrastructure\BookRentalAPI.Infrastructure.csproj" />
+      <ProjectReference Include="..\BookRentalAPI.Domain\BookRentalAPI.Domain.csproj" />
   </ItemGroup>
 
 </Project>

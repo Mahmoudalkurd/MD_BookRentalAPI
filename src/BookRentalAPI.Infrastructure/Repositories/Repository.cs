@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using BookRentalAPI.Domain.Interfaces;
 using BookRentalAPI.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +18,10 @@ namespace BookRentalAPI.Infrastructure.Repositories
 
         public async Task<T> GetByIdAsync(int id) => await _dbSet.FindAsync(id);
         public async Task<IEnumerable<T>> GetAllAsync() => await _dbSet.ToListAsync();
-        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate) => await _dbSet.Where(predicate).ToListAsync();
+        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
+            {
+                return await _context.Set<T>().Where(predicate).ToListAsync();
+            }
         public async Task AddAsync(T entity) => await _dbSet.AddAsync(entity);
         public async Task UpdateAsync(T entity) => _context.Entry(entity).State = EntityState.Modified;
         public async Task DeleteAsync(T entity) => _dbSet.Remove(entity);
